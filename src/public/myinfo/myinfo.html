@@ -1,0 +1,40 @@
+<div style="margin-left: 5%;" ng-hide="myInfoCtrl.show">
+  Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a>
+</div>
+
+<div style="margin-left: 5%;" ng-show="myInfoCtrl.show">
+  <table class="table">
+    <tr>
+      <td>Firstname</td>
+      <td>{{myInfoCtrl.userInfo.firstname}}</td>
+   </tr>
+   <tr>
+      <td>Lastname</td>
+      <td>{{myInfoCtrl.userInfo.lastname}}</td>
+   </tr>
+   <tr>
+      <td>Phone</td>
+      <td>{{myInfoCtrl.userInfo.phone}}</td>
+   </tr>
+   <tr>
+      <td>Email</td>
+      <td>{{myInfoCtrl.userInfo.email}}</td>
+   </tr>
+   <tr>
+      <td>Menu number</td>
+      <td>{{myInfoCtrl.userInfo.menunumber}}</td>
+   </tr>
+   <tr>
+      <td>Menu name</td>
+      <td>{{myInfoCtrl.userInfo.menuname}}</td>
+   </tr>
+   <tr>
+      <td>Menu description</td>
+      <td>{{myInfoCtrl.userInfo.menudescription}}</td>
+   </tr>
+   <tr>
+      <td>Image</td>
+      <td><img class="img-responsive" width="250" height="150" ng-src="{{myInfoCtrl.basePath}}/images/{{myInfoCtrl.userInfo.menunumber}}.jpg" alt="{{myInfoCtrl.userInfo.menuname}}"></td>
+   </tr>
+  </table>
+</div>

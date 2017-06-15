@@ -1,0 +1,84 @@
+<fieldset style="margin-left: 5%;">
+  <legend style="color: black;">Sign Up</legend>
+  <form name='regForm' novalidate>
+    <div class="form-group">
+      <input type="text" name="firstname" placeholder="Pick a firstname"
+        class="form-control"
+        style="color: black; width: 500px;"
+        ng-model="signUpCtrl.user.firstname"
+        required
+        minlength="3"
+        ng-maxlength="20">
+        {{ signUpCtrl.user.firstname }}
+        <span
+          ng-if="(regForm.firstname.$error.minlength || regForm.firstname.$error.required) && regForm.firstname.$touched">
+          Firstname must be at least 3 characters long.
+        </span>
+        <span ng-if="regForm.firstname.$error.maxlength && regForm.firstname.$touched">
+          Firstname must not be longer than 20 characters.
+        </span>
+    </div>
+
+    <div class="form-group">
+      <input type="text" name="lastname" placeholder="Pick a lastname"
+        class="form-control"
+        style="color: black; width: 500px;"
+        ng-model="signUpCtrl.user.lastname"
+        required
+        minlength="3"
+        ng-maxlength="20">
+        {{ signUpCtrl.user.lastname }}
+        <span
+          ng-if="(regForm.lastname.$error.minlength || regForm.lastname.$error.required) && regForm.lastname.$touched">
+          Lastname must be at least 3 characters long.
+        </span>
+        <span ng-if="regForm.lastname.$error.maxlength && regForm.Lastname.$touched">
+          Lastname must not be longer than 20 characters.
+        </span>
+    </div>
+
+    <div class="form-group">
+      <input type="email" name="email" placeholder="Email"
+        class="form-control"
+        style="color: black; width: 500px;"
+        ng-model="signUpCtrl.user.email"
+        required>
+        <span ng-if="regForm.email.$invalid && regForm.email.$touched">
+          Must be a valid email address: handle@domain format.
+        </span>
+    </div>
+
+    <div class="form-group">
+      <input type="text" name="phone" placeholder="Phone ###-###-####"
+        class="form-control"
+        style="color: black; width: 500px;"
+        ng-model="signUpCtrl.user.phone"
+        pattern="(\d{3})-(\d{3})-(\d{4})">
+        <span ng-if="regForm.phone.$invalid && regForm.phone.$touched">
+          Phone must be in the format ###-###-####.
+        </span>
+    </div>
+
+    <div class="form-group">
+      <input type="text" name="menunumber" placeholder="Menu number of a favorite dish"
+        class="form-control"
+        style="color: black; width: 500px;"
+        ng-model="signUpCtrl.user.menunumber"
+        ng-change="signUpCtrl.getItem()"
+        required>
+        <span>
+          {{signUpCtrl.item}}
+        </span>
+    </div>
+
+    <button
+      ng-disabled="regForm.$invalid"
+      ng-click="signUpCtrl.submit()" class="btn btn-default">Submit</button>
+
+      <div style="margin-top: 10px;">
+        Form valid? {{ regForm.$valid }}
+      </div>
+
+      <span>{{signUpCtrl.message}}</span>
+  </form>
+</fieldset>
